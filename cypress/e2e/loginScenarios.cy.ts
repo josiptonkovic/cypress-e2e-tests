@@ -1,5 +1,6 @@
 import { LoginPage } from "./pages/Login";
-describe("Basics", () => {
+
+describe("Valid and invalid login scenarios", () => {
   beforeEach(() => {
     cy.visit("/");
   });
