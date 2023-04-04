@@ -5,6 +5,8 @@ class Inventory {
     private buttonJacket: string = "#add-to-cart-sauce-labs-fleece-jacket";
     private buttonOnesie: string = "#add-to-cart-sauce-labs-onesie";
     private buttonTshirtRed: string = "#add-to-cart-test.allthethings()-t-shirt-(red)";
+    private menuButton: string = "#react-burger-menu-btn"
+    private logoutButton: string = "#logout_sidebar_link"
 
     private buttonShoppingCart: string = "#shopping_cart_container";    
   
@@ -34,6 +36,14 @@ class Inventory {
 
     get buttonShoppingCartElement(): Cypress.Chainable<JQuery<HTMLElement>> {
         return cy.get(this.buttonShoppingCart);
+    }
+
+    get menuButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+      return cy.get(this.menuButton);
+    }
+
+    get logoutButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+      return cy.get(this.logoutButton);
     }
 
   }

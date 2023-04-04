@@ -2,17 +2,18 @@ import { InventoryPage } from "./pages/Inventory";
 import { LoginPage } from "./pages/Login";
 import { ShoppingCartPage } from "./pages/Cart";
 import { CheckoutPage } from "./pages/Checkout";
-import { OverviewtPage } from "./pages/Owerview";
+import { OverviewPage } from "./pages/Owerview";
+import { CompletionPage } from "./pages/Completion";
 
 describe("Orderig products flow", () => {
   
     it("Visit Store page and Log in", () => {
-            cy.visit("/");
-            LoginPage.usernameElement.type("standard_user");
-            LoginPage.passwordElement.type("secret_sauce");
-            LoginPage.loginElement.click();
-            cy.url().should("contain", "inventory.html");
-            cy.get(".title").should("have.text", "Products");
+        cy.visit("/");
+        LoginPage.usernameElement.type("standard_user");
+        LoginPage.passwordElement.type("secret_sauce");
+        LoginPage.loginElement.click();
+        cy.url().should("contain", "inventory.html");
+        cy.get(".title").should("have.text", "Products");
     });
   
     it("Add Jacket and Bike Lights to cart", () => {
@@ -47,15 +48,37 @@ describe("Orderig products flow", () => {
 
     it("Click on Continue button", () => {
         CheckoutPage.continueButtonElement.click();
+        cy.url().should("contain", "checkout-step-two.html");
     });
 
-    it("PRICE TEST", () => {
-        OverviewtPage.firstItemPriceElement.should(
+    it("Verify correct Items are listed", () => {
+        OverviewPage.firstOrderedItemElement.should(
             "contain",
-            "$9.99"
+            "Sauce Labs Bike Light"
+        );
+        OverviewPage.secondOrderedItemElement.should(
+            "contain",
+            "Sauce Labs Fleece Jacket"
         );
     });
 
+    it("Click on Finish button", () => {
+        OverviewPage.finishButtonElement.click()
+        cy.url().should("contain", "checkout-complete.html");
+    });
 
+    it("Verify Checkout Completion page and Click Back Home button", () => {
+        CompletionPage.completeHeaderElement.should(
+            "contain",
+            "Thank you for your order!"
+        );
+        CompletionPage.backHomeButtonElement.click()
+        cy.url().should("contain", "inventory.html");
+    });
 
+    it("Log out of WebShop", () => {
+        InventoryPage.menuButtonElement.click()
+        InventoryPage.logoutButtonElement.click()
+        cy.url().should("contain", "/");
+    });
 });
