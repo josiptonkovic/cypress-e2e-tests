@@ -5,9 +5,12 @@ class Inventory {
     private buttonJacket: string = "#add-to-cart-sauce-labs-fleece-jacket";
     private buttonOnesie: string = "#add-to-cart-sauce-labs-onesie";
     private buttonTshirtRed: string = "#add-to-cart-test.allthethings()-t-shirt-(red)";
-    private menuButton: string = "#react-burger-menu-btn"
-    private logoutButton: string = "#logout_sidebar_link"
+    private menuButton: string = "#react-burger-menu-btn";
 
+    private removeButtonBackpack: string = "#remove-sauce-labs-backpack";
+    private removeButtonOnesie: string = "#remove-sauce-labs-onesie";
+
+    private logoutButton: string = "#logout_sidebar_link";
     private buttonShoppingCart: string = "#shopping_cart_container";    
   
     get buttonBackpackElement(): Cypress.Chainable<JQuery<HTMLElement>> {
@@ -44,6 +47,14 @@ class Inventory {
 
     get logoutButtonElement(): Cypress.Chainable<JQuery<HTMLElement>> {
       return cy.get(this.logoutButton);
+    }
+
+    get removeButtonBackpackElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+      return cy.get(this.removeButtonBackpack);
+    }
+
+    get removeButtonOnesieElement(): Cypress.Chainable<JQuery<HTMLElement>> {
+      return cy.get(this.removeButtonOnesie);
     }
 
   }

@@ -30,5 +30,4 @@ describe("Valid and invalid login scenarios", () => {
       "Epic sadface: Sorry, this user has been locked out."
     );
   });
-
 });
