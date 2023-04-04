@@ -2,6 +2,7 @@ import { InventoryPage } from "./pages/Inventory";
 import { LoginPage } from "./pages/Login";
 import { ShoppingCartPage } from "./pages/Cart";
 import { CheckoutPage } from "./pages/Checkout";
+import { OverviewtPage } from "./pages/Owerview";
 
 describe("Orderig products flow", () => {
   
@@ -46,6 +47,13 @@ describe("Orderig products flow", () => {
 
     it("Click on Continue button", () => {
         CheckoutPage.continueButtonElement.click();
+    });
+
+    it("PRICE TEST", () => {
+        OverviewtPage.firstItemPriceElement.should(
+            "contain",
+            "$9.99"
+        );
     });
 
 
