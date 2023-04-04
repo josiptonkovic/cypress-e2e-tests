@@ -21,4 +21,14 @@ describe("Valid and invalid login scenarios", () => {
       "Epic sadface: Username and password do not match any user in this service"
     );
   });
+
+  it("Locked out user", () => {
+    LoginPage.submitLogin("locked_out_user", "secret_sauce");
+    cy.url().should("not.contain", "inventory.html");
+    LoginPage.invalidLoginMessageElement.should(
+      "have.text",
+      "Epic sadface: Sorry, this user has been locked out."
+    );
+  });
+
 });
