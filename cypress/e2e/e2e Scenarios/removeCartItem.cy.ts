@@ -1,6 +1,6 @@
-import { LoginPage } from "./pages/Login";
-import { InventoryPage } from "./pages/Inventory";
-import { ShoppingCartPage } from "./pages/Cart";
+import { LoginPage } from "../pages/Login";
+import { InventoryPage } from "../pages/Inventory";
+import { ShoppingCartPage } from "../pages/Cart";
 
 describe("Add and Remove Items from Cart", () => {
 

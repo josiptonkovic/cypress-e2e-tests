@@ -1,9 +1,9 @@
-import { InventoryPage } from "./pages/Inventory";
-import { LoginPage } from "./pages/Login";
-import { ShoppingCartPage } from "./pages/Cart";
-import { CheckoutPage } from "./pages/Checkout";
-import { OverviewPage } from "./pages/Owerview";
-import { CompletionPage } from "./pages/Completion";
+import { InventoryPage } from "../pages/Inventory";
+import { LoginPage } from "../pages/Login";
+import { ShoppingCartPage } from "../pages/Cart";
+import { CheckoutPage } from "../pages/Checkout";
+import { OverviewPage } from "../pages/Owerview";
+import { CompletionPage } from "../pages/Completion";
 
 describe("Orderig products flow", () => {
   
@@ -41,8 +41,8 @@ describe("Orderig products flow", () => {
     });
 
     it("Fill out Personal and Shipping Information", () => {
-        CheckoutPage.firstNameElement.type("Name");
-        CheckoutPage.lastNameElement.type("Eman");
+        CheckoutPage.firstNameElement.type("Josip");
+        CheckoutPage.lastNameElement.type("Tonkovic");
         CheckoutPage.zipCodeElement.type("12345");
     });
 
