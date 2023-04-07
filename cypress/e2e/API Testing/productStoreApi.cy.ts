@@ -63,4 +63,13 @@ describe("Test and validation of Product API endpoints", () => {
             expect(response.status).to.be.equal(201);
         });
     });
-});
+
+    it("Delete product", () => {
+        cy.request("DELETE", `${Cypress.env("storeApi")}/products/running-sneaker`,).then(
+            (response) => {
+                expect(response.status).to.be.equal(200);
+                expect(response.statusText).to.be.equal("OK")
+            });
+    });
+    
+  });
