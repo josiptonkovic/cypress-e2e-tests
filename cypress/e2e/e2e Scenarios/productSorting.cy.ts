@@ -16,9 +16,52 @@ describe("Validate product ordering feature", () => {
         InventoryPage.orderingDropdownElement.select("za");
     });
 
-    it("Validate product ordering Z to A", () => {
-        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]").should("contain.text", "Test.allTheThings() T-Shirt (Red)");
-        
+    it("Validate product ordering Name: Z to A", () => {
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]").should(
+            "contain.text", "Test.allTheThings() T-Shirt (Red)"
+        );
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[6]").should(
+            "contain.text", "Sauce Labs Backpack"
+        );
     });
+
+    it("Select Name (A to Z) in ordering dropdown", () => {
+        InventoryPage.orderingDropdownElement.select("az");
+    });
+
+    it("Validate product ordering Name: A to Z", () => {
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]").should(
+            "contain.text", "Sauce Labs Backpack"
+        );
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[6]").should(
+            "contain.text", "Test.allTheThings() T-Shirt (Red)"
+        );
+    });
+
+    it("Select Price (Low to High) in ordering dropdown", () => {
+        InventoryPage.orderingDropdownElement.select("lohi");
+    });
+
+    it("Validate product ordering Price: Low to High", () => {
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]").should(
+            "contain.text", "$7.99"
+        );
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[6]").should(
+            "contain.text", "$49.99"
+        );
+    });
+
+    it("Select Price (High to Low) in ordering dropdown", () => {
+        InventoryPage.orderingDropdownElement.select("hilo");
+    });
+
+    it("Validate product ordering Price: High to Low", () => {
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[1]").should(
+            "contain.text", "$49.99"
+        );
+        cy.xpath("/html/body/div/div/div/div[2]/div/div/div/div[6]").should(
+            "contain.text", "$7.99"
+        );
+    })
 
 });
